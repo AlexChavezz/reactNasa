@@ -1,10 +1,9 @@
 import React from 'react'
 
 export const AsteroidsNeoWs = () => {
-    console.log('me llame :()')
     return (
         <div>
-            <h1>AsteroidsNeoWs</h1>
+            <h1 className="animate__animated animate__bounce">AsteroidsNeoWs</h1>
             <hr />
         </div>
     )
