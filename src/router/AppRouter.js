@@ -7,7 +7,7 @@ import {
 import { HomeScreen } from '../components/screens/Home Screen/HomeScreen';
 import { PictureOFDay } from '../components/screens/Picture OF Day Screen/PictureOFDay';
 import { NavBar } from '../components/NavBar/NavBar';
-import { AsteroidsNeoWs } from '../components/screens/AsteroidsNeoWs';
+import { AsteroidsNeoWs } from '../components/screens/NeoWS/AsteroidsNeoWs';
 
 export const AppRouter = () => {
     return (

@@ -13,10 +13,9 @@ export const PictureOFDay = () => {
     });
 
     const data = useFetch(`https://api.nasa.gov/planetary/apod?date=${state.year}-${state.month}-${state.day}&api_key=ZD6tZnrYEg3lvEDi9NY8Y3Mg3ZDUfJXcTdn7Myah`);
-
     return (
         <div className="container">
-            <Form  dates={state.date} setState={setstate} />
+            <Form  state={state} setState={setstate} />
             {
                 data.loading ?
                     (
