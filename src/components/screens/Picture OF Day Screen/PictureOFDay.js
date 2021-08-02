@@ -1,24 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useFetch } from '../../../hooks/useFetch';
 import { Content } from './content/Content';
-import { Form } from'./content/Form';
+import { Form } from './content/Form';
+import useCounter from '../../../hooks/useCounter';
 export const PictureOFDay = () => {
 
-
-    const [state, setState] = useState({
+    const [state, setstate, nextDay, previusDay] = useCounter({
         date: new Date(),
-        day:new Date().getDate(),
-        month:new Date().getMonth() + 1 ,
-        year:new Date().getFullYear(),
+        day: new Date().getDate(),
+        month: new Date().getMonth() + 1,
+        year: new Date().getFullYear(),
     });
-
 
     const data = useFetch(`https://api.nasa.gov/planetary/apod?date=${state.year}-${state.month}-${state.day}&api_key=ZD6tZnrYEg3lvEDi9NY8Y3Mg3ZDUfJXcTdn7Myah`);
 
-
     return (
         <div className="container">
-            <Form setState={setState} dates={state.date}/>
+            <Form  dates={state.date} setState={setstate} />
             {
                 data.loading ?
                     (
@@ -27,7 +25,7 @@ export const PictureOFDay = () => {
                         </div>
                     ) : (
                         <div className="animate__animated animate__fadeIn">
-                            <Content {...data} state={state} setState={setState}/>
+                            <Content {...data} state={state} nextDay={nextDay} previusDay={previusDay} />
                         </div>
                     )
             }

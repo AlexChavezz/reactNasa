@@ -4,8 +4,8 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-import { HomeScreen } from '../components/screens/HomeScreen'
-import { PictureOFDay } from '../components/screens/pictureoftheday/PictureOFDay'
+import { HomeScreen } from '../components/screens/Home Screen/HomeScreen';
+import { PictureOFDay } from '../components/screens/Picture OF Day Screen/PictureOFDay';
 import { NavBar } from '../components/NavBar/NavBar';
 import { AsteroidsNeoWs } from '../components/screens/AsteroidsNeoWs';
 

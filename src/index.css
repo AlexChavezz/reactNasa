@@ -46,3 +46,19 @@ code {
     transform: rotate(360deg);
   }
 }
+.height-custom{
+  height:40vh;
+  background-color: #282c34;
+}
+#header{
+  background-color:#20232a;
+}
+.apinfo{
+  display: grid;
+  grid-template-columns: 40% 40%;
+  justify-content: space-evenly;
+}
+footer{
+  min-height:150px;
+  background-color: #212529;
+}

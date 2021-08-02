@@ -1,24 +1,6 @@
-import React, { useState } from 'react'
-export const Content = ({ data,state, setState }) => {
-    
-
-    const [date] = useState( state.date );
-    const yesterday = () => {
-        let daymilisecounds = 24 * 60 * 60 * 1000;
-        const ayer = new Date(date.getTime() - daymilisecounds)
-        return ayer;
-    }
-
-    const previusDays = () => {
-        const daybefore = yesterday()
-        setState({
-            date: daybefore,
-            day: daybefore.getDate(),
-            month: daybefore.getMonth() + 1,
-            year: daybefore.getFullYear(),
-        });
-    }
-    console.log(state.date.getTime());
+import React, { useRef } from 'react';
+export const Content = ({ data,state, previusDay, nextDay }) => {
+    const ref = useRef(new Date());
     return (
         <section className="container">
 
@@ -28,15 +10,18 @@ export const Content = ({ data,state, setState }) => {
                     <div className="col d-flex p-0 justify-content-end">
                         <button 
                         className="btn btn-info mx-2"
-                        onClick={ ( ) => previusDays() }
+                        onClick={ ( ) => previusDay() }
                         >
                             Previus
                         </button>
                     </div>
                     <div className="col d-flex p-0 justify-content-start">
                         {
-                            state.date.getTime() > date.getTime()  &&
-                            <button className="btn btn-info ">
+                            state.date.getTime() < ref.current.getTime()  &&
+                            <button 
+                            className="btn btn-info "
+                            onClick={ nextDay }
+                            >
                                 Next
                             </button>
                         }
