@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from '../../../../hooks/useForm'
 
-export const Form = ({ setState }) => {
+export const Form = React.memo(({ setState }) => {
 
     const [values, handleInputChange, reset] = useForm({
         date:'',
@@ -22,8 +22,6 @@ export const Form = ({ setState }) => {
         const button =  document.getElementById('collapseExample');
         button.classList.remove('show');
     }
-    console.log(day)
-
     
         return(
         <>
@@ -89,4 +87,4 @@ export const Form = ({ setState }) => {
 
         </>
     )
-}
+})

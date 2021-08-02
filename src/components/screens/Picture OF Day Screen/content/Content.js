@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-export const Content = ({ data,state, previusDay, nextDay }) => {
+export const Content = React.memo(({ data,state, previusDay, nextDay }) => {
     const ref = useRef(new Date());
     return (
         <section className="container">
@@ -45,4 +45,4 @@ export const Content = ({ data,state, previusDay, nextDay }) => {
             </div>
         </section>
     )
-}
+})

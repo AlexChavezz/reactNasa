@@ -12,7 +12,7 @@ code {
     monospace;
 }
 .active{
-  color: gold !important;
+  color: white!important;
 }
 .span{
   position: absolute;
