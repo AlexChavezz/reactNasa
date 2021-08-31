@@ -62,3 +62,6 @@ footer{
   min-height:150px;
   background-color: #212529;
 }
+.animate__animated.animate__backInLeft {
+  --animate-duration: .2s;
+}

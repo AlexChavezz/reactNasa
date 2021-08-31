@@ -1,9 +1,20 @@
 
-import React from 'react'
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { PictureOFDayModal } from './PictureOFDayModal';
+import { NeowsModal } from './NeowsModal';
+
+
 export const HomeScreen = () => {
 
-
+    const [state, setstate] = useState(false);
+    const [statetwo, setstatetwo] = useState(false);
+    const hiddeModalOne = () => {
+        setstate(false);
+    }
+    const hiddeModalTwo = () => {
+        setstatetwo(false);
+    }
 
     return (
         <>
@@ -23,27 +34,38 @@ export const HomeScreen = () => {
                 </div>
             </div>
             <div className="container my-5 respo">
-                <div className="row">
-                    <div className="shadow">
+                <div className="row row-cols-2 justify-content-between">
+                    <div className="col-5 shadow">
                         <h3 className="my-2 p-3"> Astronomy Picture of the Day</h3>
                         <p className="mb-4 px-3"> One of the most popular websites at NASA is the Astronomy Picture of the Day. In fact, this website is one of the most popular websites across all federal agencies. It has the popular appeal of a Justin Bieber video. This endpoint structures the APOD imagery and associated metadata so that it can be repurposed for other applications.</p>
-                        
-                        <div className="row">
-                            <h5>Instructions</h5>
-                        </div>
-                        <div className="row">
-                            <div className="col d-flex justify-content-center">
-                                <Link to="/PictureOFDay" className="btn btn-link m-4"> Let me try </Link>
+                        <div className="row m-2">
+                            <div className="col d-flex justify-content-around">
+                                <button
+                                    className="btn btn-info"
+                                    onClick={ () => setstate(true)}
+                                >About</button>
+                                <Link to="/PictureOFDay" className="btn btn-outline-primary"> Let me try </Link>
                             </div>
+                            { state &&  <PictureOFDayModal state={state} close={hiddeModalOne}/>
+                            }
                         </div>
                     </div>
-                    <div className="shadow">
+                    <div className="col-5 shadow">
                         <h3 className="my-2 p-3">Near Earth Object Web Service</h3>
                         <p className="mb-4 px-3"> NeoWs (Near Earth Object Web Service) is a RESTful web service for near earth Asteroid information. With NeoWs a user can: search for Asteroids based on their closest approach date to Earth, lookup a specific Asteroid with its NASA JPL small body id, as well as browse the overall data-set.</p>
-                        <div className="col d-flex justify-content-center">                            <Link to="/AsteroidsNeoWs" className="btn btn-link m-4"> Let me try </Link>
+                        <div className="row mt-2">
+                            <div className="col d-flex justify-content-around">
+                                <button
+                                className="btn btn-info"
+                                onClick={ ( ) => setstatetwo(true) }
+                                >About</button>
+                                <Link to="/AsteroidsNeoWs" className="btn btn-outline-primary"> Let me try </Link>
+                            </div>
+                            {
+                                statetwo &&   <NeowsModal  statetwo={statetwo} close={hiddeModalTwo} />
+                            }
                         </div>
                     </div>
-
                 </div>
             </div>
             <footer className="d-flex align-items-end justify-content-center text-light">
